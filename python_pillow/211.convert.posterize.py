@@ -8,7 +8,7 @@ width, height = im.size
 
 
 #-- pixel operation
-q = 32
+q = 64
 
 for y in range(height):
     for x in range(width):
@@ -22,5 +22,5 @@ for y in range(height):
 
 
 #-- save to png
-im.save('z211.png')
+im.save('z211b.png')
 
