@@ -2,17 +2,17 @@
 from PIL import Image
 
 
-# im1 = Image.open('../images/img001.png').convert('RGB')
-# im1 = Image.open('../images/img001.png').convert('L')
+#-- read pixels
 im1 = Image.open('../images/img002.png').convert('L')
 width, height = im1.size
-# im3 = Image.new('RGB', (width, height))
 im3 = Image.new('L', (width, height))
+
 
 #-- filter coeff
 k = [ 0, 0, 0,
      -1, 1, 0,
       0, 0, 0 ]
+
 
 #-- canvas loop
 for y in range(1, height-1):
@@ -32,6 +32,7 @@ for y in range(1, height-1):
         s = s + 128
         im3.putpixel((x, y), s)
 
-im3.save('z121.png')
 
+#-- save to png
+im3.save('z400.png')
 

@@ -2,11 +2,14 @@
 from PIL import Image
 
 
+#-- read pixels
 im1 = Image.open('../images/img001.png').convert('RGB')
 width, height = im1.size
 im2 = Image.open('../images/img002.png').convert('RGB')
 im3 = Image.new('RGB', (width, height))
 
+
+#-- pixel operation
 a = 0.7
 
 for y in range(height):
@@ -20,6 +23,6 @@ for y in range(height):
 
         im3.putpixel((x, y), (r3, g3, b3))
 
-im3.save('z111.png')
-
+#-- save to png
+im3.save('z231.png')
 

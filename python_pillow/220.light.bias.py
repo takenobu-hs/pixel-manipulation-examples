@@ -2,9 +2,12 @@
 from PIL import Image
 
 
+#-- read pixels
 im = Image.open('../images/img001.png').convert('RGB')
 width, height = im.size
 
+
+#-- pixel operation
 s   = 70
 upr = 255
 
@@ -18,6 +21,7 @@ for y in range(height):
 
         im.putpixel((x, y), (r2, g2, b2))
 
-im.save('z105.png')
 
+#-- save to png
+im.save('z220.png')
 
