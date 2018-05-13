@@ -31,6 +31,5 @@ for y in range(d, height-d):
 
 
 #-- save to png
-Image.fromarray(np.uint8(im3)).save('z140.png')
-
+Image.fromarray(np.uint8(im3)).save('z500.png')
 

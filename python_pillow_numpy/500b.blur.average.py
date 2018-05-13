@@ -24,17 +24,12 @@ for y in range(d, height-d):
         w  = im1nd[y-d:y+d+1, x-d:x+d+1]
 
         #-- filter
-        wr = np.clip( w[:,:, 0].sum() / n, 0, 255)
-        wg = np.clip( w[:,:, 1].sum() / n, 0, 255)
-        wb = np.clip( w[:,:, 2].sum() / n, 0, 255)
+        p = np.clip( w.sum(axis=(0,1)) / n, 0, 255)
 
         #-- put
-        im3[y, x, 0] = wr
-        im3[y, x, 1] = wg
-        im3[y, x, 2] = wb
+        im3[y, x, :] = p
 
 
 #-- save to png
-Image.fromarray(np.uint8(im3)).save('z140b.png')
-
+Image.fromarray(np.uint8(im3)).save('z500b.png')
 

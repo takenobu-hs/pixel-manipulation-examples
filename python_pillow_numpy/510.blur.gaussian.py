@@ -17,10 +17,7 @@ n = (d*2+1)*(d*2+1)
 
 kx = np.array([1, 4, 6, 4, 1])
 ky = kx.reshape(5,1)
-#k = (kx * ky) / 256
-k = (kx * ky).flatten() / 256
-
-
+k = (kx * ky) / 256
 
 
 #-- canvas loop
@@ -31,9 +28,9 @@ for y in range(d, height-d):
         w  = im1nd[y-d:y+d+1, x-d:x+d+1]
 
         #-- filter
-        wr = np.clip( w[:,:, 0].flatten().dot(k), 0, 255)
-        wg = np.clip( w[:,:, 1].flatten().dot(k), 0, 255)
-        wb = np.clip( w[:,:, 2].flatten().dot(k), 0, 255)
+        wr = np.clip((w[:,:, 0] * k).sum(), 0, 255)
+        wg = np.clip((w[:,:, 1] * k).sum(), 0, 255)
+        wb = np.clip((w[:,:, 2] * k).sum(), 0, 255)
 
         #-- put
         im3[y, x, 0] = wr
@@ -42,6 +39,5 @@ for y in range(d, height-d):
 
 
 #-- save to png
-Image.fromarray(np.uint8(im3)).save('z141.png')
-
+Image.fromarray(np.uint8(im3)).save('z510.png')
 

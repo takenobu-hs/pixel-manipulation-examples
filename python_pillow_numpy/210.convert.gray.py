@@ -2,37 +2,26 @@
 from PIL import Image
 import numpy as np
 
+
 #-- read pixels to ndarray
-im1 = np.array( Image.open('../images/img001.png').convert('RGB') )
-im3 = np.empty_like(im1)
+im0  = np.array(Image.open('../images/img001.png').convert('RGB'))
+im1f = im0.astype(np.float64)
+im3f = np.empty_like(im1f)
 
 
 #-- pixel operation
-#gray = (im1[:, :, 0] + im1[:, :, 1] + im1[:, :, 2]) // 3
-gray = im1[:, :, 0]//3 + im1[:, :, 1]//3 + im1[:, :, 2]//3
+r = im1f[:, :, 0]
+g = im1f[:, :, 1]
+b = im1f[:, :, 2]
 
-## im3[:, :, 0] = np.array(gray, dtype=np.uint8)
-## im3[:, :, 1] = np.array(gray, dtype=np.uint8)
-## im3[:, :, 2] = np.array(gray, dtype=np.uint8)
+gray = (r + g + b) / 3
 
-#gray = (im1[:, :, 0] + im1[:, :, 1] + im1[:, :, 2])
-#gray = (im1[:, :, 0] + im1[:, :, 1] + im1[:, :, 2]) / 3
-
-im3[:, :, 0] = gray
-im3[:, :, 1] = gray
-im3[:, :, 2] = gray
-
-
-# im3[:, :, 0] = im3[:, :, 0] + im1[:, :, 2]
-# im3[:, :, 0] = im3[:, :, 0] / 3
-# im3[:, :, 1] = im3[:, :, 0]
-# im3[:, :, 2] = im3[:, :, 0]
-
+im3f[:, :, 0] = gray
+im3f[:, :, 1] = gray
+im3f[:, :, 2] = gray
 
 
 #-- save to png
-Image.fromarray(im3).save('z102.png')
-#imo = Image.fromarray(im3)
-#imo.save('z101.png')
-
+im4 = im3f.astype(np.uint8)
+Image.fromarray(im4).save('z210.png')
 

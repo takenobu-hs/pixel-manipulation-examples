@@ -2,10 +2,14 @@
 from PIL import Image
 import numpy as np
 
+
+#-- read and convert
 im1 = Image.open('../images/img002.png').convert('L')
-width, height = im1.size
 im1nd = np.array(im1)
-im3 = Image.new('L', (width, height))
+width, height = im1.size
+
+im3 = np.zeros_like(im1nd)
+
 
 #-- filter coeff
 d = 1
@@ -21,11 +25,12 @@ for y in range(d, height-d):
         w = im1nd[y-d:y+d+1, x-d:x+d+1].flatten()
 
         #-- filter
-        s = int(w.dot(k)) + 128
+        s = np.clip(w.dot(k) + 128, 0, 255)
 
         #-- put
-        im3.putpixel((x, y), s)
+        im3[y, x] = s
 
-im3.save('z134.png')
 
+#-- save to png
+Image.fromarray(np.uint8(im3)).save('z410.png')
 

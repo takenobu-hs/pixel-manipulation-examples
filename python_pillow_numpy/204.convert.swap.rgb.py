@@ -2,6 +2,7 @@
 from PIL import Image
 import numpy as np
 
+
 #-- read pixels to ndarray
 im1 = np.array( Image.open('../images/img001.png').convert('RGB') )
 im3 = np.empty_like(im1)
@@ -18,6 +19,5 @@ im3[:, :, 2] = r
 
 
 #-- save to png
-Image.fromarray(im3).save('z101.png')
-
+Image.fromarray(im3).save('z204.png')
 

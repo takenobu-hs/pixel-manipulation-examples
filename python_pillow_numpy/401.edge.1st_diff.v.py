@@ -2,10 +2,13 @@
 from PIL import Image
 import numpy as np
 
+
+#-- read pixels to ndarray
 im1 = Image.open('../images/img002.png').convert('L')
 width, height = im1.size
 im1nd = np.array(im1)
 im3 = Image.new('L', (width, height))
+
 
 #-- filter coeff
 d = 1
@@ -26,6 +29,6 @@ for y in range(d, height-d):
         #-- put
         im3.putpixel((x, y), s)
 
-im3.save('z131.png')
 
+im3.save('z401.png')
 

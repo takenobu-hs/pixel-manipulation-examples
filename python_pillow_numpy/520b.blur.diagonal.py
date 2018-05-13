@@ -18,7 +18,6 @@ n = (d*2+1)*(d*2+1)
 k = np.eye(5) / 5
 
 
-
 #-- canvas loop
 for y in range(d, height-d):
     for x in range(d, width-d):
@@ -34,6 +33,5 @@ for y in range(d, height-d):
 
 
 #-- save to png
-Image.fromarray(np.uint8(im3)).save('z142b.png')
-
+Image.fromarray(np.uint8(im3)).save('z520b.png')
 
