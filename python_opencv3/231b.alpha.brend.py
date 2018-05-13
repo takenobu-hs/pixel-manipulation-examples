@@ -16,9 +16,6 @@ a = 0.7
 im3f = cv2.addWeighted(im0a, a, im0b, (1-a), 0)
 
 
-
 #-- save to png
-cv2.imwrite('z111b.png', im3f)
-
-
+cv2.imwrite('z231b.png', im3f)
 

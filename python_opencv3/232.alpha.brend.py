@@ -18,10 +18,6 @@ im3f[:,:,1] = (im0a[:,:,1] * a) + (im0b[:,:,1] * (1-a))
 im3f[:,:,2] = (im0a[:,:,2] * a) + (im0b[:,:,2] * (1-a))
 
 
-
-
 #-- save to png
-cv2.imwrite('z112.png', im3f)
-
-
+cv2.imwrite('z232.png', im3f)
 

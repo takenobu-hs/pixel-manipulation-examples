@@ -36,6 +36,5 @@ for y in range(d, height-d):
 
 
 #-- save to png
-cv2.imwrite('z134c.png', im3)
-
+cv2.imwrite('z410.png', im3)
 
